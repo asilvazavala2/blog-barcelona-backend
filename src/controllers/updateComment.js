@@ -1,16 +1,7 @@
 const { Comments } = require('../db');
 
 const updateComment = async (id, formData) => {
-  const {
-    text, like, dislike, likedBy, dislikedBy
-  } = formData
-
-  if (!text) {
-    throw {
-      status: false,
-      message: 'Missing required information.'
-    }
-  }
+  const { text, like, dislike, likedBy, dislikedBy } = formData
 
   try {
     const commentToUpdate = await Comments.findByPk(id)
